@@ -61,6 +61,9 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Windows
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# After installation, open a new terminal and verify:
+uv --version
 ```
 
 #### 2. Setup Configuration
