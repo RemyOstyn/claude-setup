@@ -84,6 +84,12 @@ chmod +x .claude/hooks/task_medium_prep_hook.py
 - **`/task_medium`**: Advanced problem-solving with automated directory management
 - **`/task_easy`**: Simplified task workflow for lighter needs
 
+### 🤖 Custom Agents
+- **`investigator`**: Expert code investigator that tracks down related code to problems
+  - Uses sequential thinking and advanced search tools
+  - Generates comprehensive REPORT.md files
+  - Integrated with task_medium workflow
+
 ### 🔌 MCP Servers
 - **Context7**: Library documentation and code context
 - **Puppeteer**: Browser automation and web scraping  
@@ -122,9 +128,10 @@ Automated workflow for complex problem-solving with structured investigation and
 **Workflow:**
 1. 🔧 Hook detects `/task_medium` prompt
 2. 📁 Creates `claude-code-storage/claude-instance-{id}/` directory
-3. 🔍 Subagent investigates codebase and creates REPORT.md
-4. 📋 User reviews and approves plan
-5. 📝 PLAN.md generated in instance directory
+3. 🔍 Investigator agent analyzes codebase using sequential thinking
+4. 📄 Generates comprehensive REPORT.md with related files
+5. 📋 User reviews and approves plan
+6. 📝 PLAN.md generated in instance directory
 
 ### `/commit` - Intelligent Commits
 
@@ -147,6 +154,8 @@ Lightweight task workflow for simpler problem-solving needs.
 claude-setup/
 ├── .claude/
 │   ├── settings.json          # Permissions and hook configuration
+│   ├── agents/
+│   │   └── investigator.md    # Code investigation agent
 │   ├── hooks/
 │   │   └── task_medium_prep_hook.py  # Auto directory creation
 │   └── commands/

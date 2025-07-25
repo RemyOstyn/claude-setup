@@ -4,15 +4,7 @@ You must consider edge cases and follow best coding practices for everything. Ne
 
 ## Configuration
 
-STEP 1: You must create a subagent with a task to investigate all codebase files and find the files related to the problem and always create a "REPORT.md" inside the claude-instance directory that gets automatically created for this task session which you will then read to learn the list of files needed for you to check in order to understand and solve the problem.
-
-IMPORTANT: The subagent MUST only return the following response format and nothing else:
-
-```
-## Report Location:
-The comprehensive investigation report has been saved to:
-`[full path to REPORT.md file]`
-```
+STEP 1: You must use the investigator subagent that returns you a "REPORT.md" file which you will then read to learn the list of files needed for you to check in order to understand and solve the problem.
 
 After you finish reading the "REPORT.md" file, enter plan mode.
 
