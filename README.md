@@ -81,6 +81,7 @@ chmod +x .claude/hooks/task_medium_prep_hook.py
 
 ### 🎯 Custom Commands
 - **`/commit`**: Intelligent commit workflow with conventional standards
+- **`/code-review`**: Reviews uncommitted changes before committing
 - **`/task_medium`**: Advanced problem-solving with automated directory management
 - **`/task_easy`**: Simplified task workflow for lighter needs
 
@@ -89,6 +90,10 @@ chmod +x .claude/hooks/task_medium_prep_hook.py
   - Uses sequential thinking and advanced search tools
   - Generates comprehensive REPORT.md files
   - Integrated with task_medium workflow
+- **`code-reviewer`**: Senior code review specialist for quality assurance
+  - Reviews changes for quality, security, and maintainability
+  - Provides prioritized feedback (critical, warnings, suggestions)
+  - Checks for best practices and potential issues
 
 ### 🔌 MCP Servers
 - **Context7**: Library documentation and code context
@@ -133,14 +138,50 @@ Automated workflow for complex problem-solving with structured investigation and
 5. 📋 User reviews and approves plan
 6. 📝 PLAN.md generated in instance directory
 
+### `/code-review` - Automated Code Review
+
+Initiates code-reviewer agent to analyze uncommitted changes only.
+
+**Usage:**
+```bash
+/code-review
+```
+
+**Features:**
+- Focuses exclusively on uncommitted changes
+- Reviews modified files for quality, security, and maintainability
+- Provides prioritized feedback:
+  - 🚨 Critical issues (must fix)
+  - ⚠️ Warnings (should fix)
+  - 💡 Suggestions (consider improving)
+- Includes specific fix examples
+
+**Example:**
+```bash
+# After making changes
+/code-review
+# Fix any critical issues
+/commit
+```
+
 ### `/commit` - Intelligent Commits
 
-Analyzes code changes and follows conventional commit standards.
+Streamlined commit workflow following conventional commit standards.
 
 **Features:**
 - Diff analysis and change summarization
 - Conventional commit message formatting
-- Temporary fix detection and warnings
+- Clean, focused commits
+
+**Important:** Run `/code-review` before committing to ensure code quality.
+
+**Example:**
+```bash
+# Review changes first
+/code-review
+# After fixing issues
+/commit
+```
 
 ### `/task_easy` - Simplified Tasks
 
@@ -155,12 +196,14 @@ claude-setup/
 ├── .claude/
 │   ├── settings.json          # Permissions and hook configuration
 │   ├── agents/
-│   │   └── investigator.md    # Code investigation agent
+│   │   ├── investigator.md    # Code investigation agent
+│   │   └── code-reviewer.md   # Code review specialist
 │   ├── hooks/
 │   │   └── task_medium_prep_hook.py  # Auto directory creation
 │   └── commands/
 │       ├── task_medium.md     # Advanced task workflow
 │       ├── task_easy.md       # Simple task workflow
+│       ├── code-review.md     # Code review workflow
 │       └── commit.md          # Commit workflow
 ├── .mcp.json                  # MCP server configuration
 ├── claude-code-storage/       # Auto-generated task directories
