@@ -4,7 +4,7 @@ You must consider edge cases and follow best coding practices for everything. Ne
 
 ## Configuration
 
-STEP 1: You must use the investigator subagent that returns you a "REPORT.md" file which you will then read to learn the list of files needed for you to check in order to understand and solve the problem.
+STEP 1: You must use the investigator subagent (pass to it the full path of the created claude-instance{id} directory) that returns you a "REPORT.md" file which you will then read to learn the list of files needed for you to check in order to understand and solve the problem.
 
 After you finish reading the "REPORT.md" file, enter plan mode.
 
