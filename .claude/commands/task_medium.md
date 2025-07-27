@@ -4,10 +4,12 @@ You must consider edge cases and follow best coding practices for everything. Ne
 
 ## Configuration
 
-STEP 1: You must use the investigator subagent (pass to it the full path of the created claude-instance{id} directory) that returns you a "REPORT.md" file which you will then read to learn the list of files needed for you to check in order to understand and solve the problem.
+STEP 1: You must use the investigator subagent (pass to it the full path of the created claude-instance{id} directory) that returns you a "INVESTIGATION_REPORT.md" file.
 
-After you finish reading the "REPORT.md" file, enter plan mode.
+STEP 2: You must use the code-flow-mapper subagent (pass to it the full path of the created claude-instance{id} directory) that returns you a "FLOW_REPORT.md" file.
 
-STEP 2: When the user accepts your plan, write it in a "PLAN.md" file inside the claude-instance directory that was automatically created for this task session.
+STEP 3: You must use the planner subagent (pass to it the full path of the claude-instance directory that contains the 2 reports made by the 2 subagents) that reads both reports and creates a "PLAN.md".
+
+STEP 4: After all three subagents finish, enter plan mode and read the "PLAN.md" file and present the plan to the user so that they can either accept or adjust it.
 
 Problem: $ARGUMENTS

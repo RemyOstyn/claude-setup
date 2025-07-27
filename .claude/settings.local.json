@@ -1,0 +1,9 @@
+{
+  "enabledMcpjsonServers": [
+    "context7",
+    "puppeteer",
+    "sequential-thinking",
+    "mcp-deepwiki"
+  ],
+  "enableAllProjectMcpServers": true
+}

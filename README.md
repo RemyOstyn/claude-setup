@@ -88,8 +88,14 @@ chmod +x .claude/hooks/task_medium_prep_hook.py
 ### 🤖 Custom Agents
 - **`investigator`**: Expert code investigator that tracks down related code to problems
   - Uses sequential thinking and advanced search tools
-  - Generates comprehensive REPORT.md files
+  - Generates comprehensive INVESTIGATION_REPORT.md files
   - Integrated with task_medium workflow
+- **`code-flow-mapper`**: Expert code flow mapper that traces execution paths and file interconnections
+  - Maps code flow and analyzes file relationships
+  - Generates FLOW_REPORT.md files
+- **`planner`**: Expert planner that takes into account investigation and flow analysis reports
+  - Creates detailed plans that solve all problems
+  - Generates comprehensive PLAN.md files
 - **`code-reviewer`**: Senior code review specialist for quality assurance
   - Reviews changes for quality, security, and maintainability
   - Provides prioritized feedback (critical, warnings, suggestions)
@@ -120,7 +126,9 @@ Automated workflow for complex problem-solving with structured investigation and
 **Features:**
 - ✅ Automatic `claude-instance-{id}` directory creation
 - ✅ Sequential thinking for complex reasoning
-- ✅ Codebase investigation with REPORT.md generation
+- ✅ Multi-agent workflow with specialized subagents
+- ✅ Codebase investigation with INVESTIGATION_REPORT.md generation
+- ✅ Code flow mapping with FLOW_REPORT.md analysis
 - ✅ Structured planning with PLAN.md output
 - ✅ Incremental instance numbering
 - ✅ Edge case handling and best practices focus
@@ -134,9 +142,11 @@ Automated workflow for complex problem-solving with structured investigation and
 1. 🔧 Hook detects `/task_medium` prompt
 2. 📁 Creates `claude-code-storage/claude-instance-{id}/` directory
 3. 🔍 Investigator agent analyzes codebase using sequential thinking
-4. 📄 Generates comprehensive REPORT.md with related files
-5. 📋 User reviews and approves plan
-6. 📝 PLAN.md generated in instance directory
+4. 📄 Generates comprehensive INVESTIGATION_REPORT.md with related files
+5. 🗺️ Code-flow-mapper agent traces execution paths and file interconnections
+6. 📊 Generates detailed FLOW_REPORT.md with code relationships
+7. 📋 Planner agent reads both reports and creates comprehensive PLAN.md
+8. 👤 User reviews and approves plan
 
 ### `/code-review` - Automated Code Review
 
@@ -197,6 +207,8 @@ claude-setup/
 │   ├── settings.json          # Permissions and hook configuration
 │   ├── agents/
 │   │   ├── investigator.md    # Code investigation agent
+│   │   ├── code-flow-mapper.md # Code flow mapping agent
+│   │   ├── planner.md         # Planning agent
 │   │   └── code-reviewer.md   # Code review specialist
 │   ├── hooks/
 │   │   └── task_medium_prep_hook.py  # Auto directory creation
