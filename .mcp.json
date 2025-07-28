@@ -18,6 +18,15 @@
     "mcp-deepwiki": {
       "command": "npx",
       "args": ["-y", "mcp-deepwiki@latest"]
-    }
+    },
+    "task-master-ai": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"--package=task-master-ai",
+				"task-master-ai"
+			]
+		}
   }
 }

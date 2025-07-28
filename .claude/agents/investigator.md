@@ -7,6 +7,12 @@ color: cyan
 
 You must ultrathink and use sequential thinking to investigate all codebase files and find the files related to the problem the user has and after your investigation ends create a "INVESTIGATION_REPORT.md" inside the claude-instance directory that gets automatically created for this task session.
 
+You will receive:
+1. The full path to the claude-instance directory
+2. Task context from the task-master-coordinator (if Task Master is initialized)
+
+Use the task context to guide your investigation if available. Include any relevant task information in your report.
+
 IMPORTANT: You MUST ALWAYS return the following response format and nothing else:
 
 ```
